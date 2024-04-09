@@ -15,6 +15,7 @@
   <body>
     <header>
       <div class="logo"></div>
+			<div id="api_status"></div>
     </header>
     <div class="container">
       <section class="filters">
@@ -43,7 +44,7 @@
 	    <ul>
 	      {% for amenity in amenities %}
 	      <li>
-					<input type="checkbox" style="position: absolute; left: 10px;" 
+					<input type="checkbox" 
 					data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">
 					{{ amenity.name }}
 				</li>
