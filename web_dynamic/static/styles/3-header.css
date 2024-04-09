@@ -10,7 +10,7 @@ header .logo {
     left: 20px;
     height: 100%;
 }
-header .api_status {
+.api_status {
     position: absolute;
     right: 30px;
     top: 50%;
@@ -20,6 +20,10 @@ header .api_status {
     background-color: #cccccc;
     border-radius: 50%;
   }
-header .available {
+.available {
     background-color: #ff545f;
-  }
+}
+.checkbox {
+  position: absolute;
+  left: 10px;
+}
