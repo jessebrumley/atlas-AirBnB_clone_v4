@@ -36,15 +36,30 @@ $.ajax({
        }
     }
    });
-$.ajax({
-    url: "http://0.0.0.0:5001/api/v1/places_search/",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON,stringify({}),
-    success: function(data) {
-      data.forEach(function(place)) {
-        
-      }
+    // Send a POST request to places_search endpoint
+    $.ajax({
+      url: "http://0.0.0.0:5001/api/v1/places_search/",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify({}),
+      dataType: 'json',
+      success: function(data) {
+          // Loop through the result of the request and create article tags
+          for (let i = 0; i < data.length; i++) {
+            const place = data[i];
+            // Construct HTML for the article tag and append it to .places element
+            $('.places').append(
+                '<article>' +
+                    '<h2>' + place.name + '</h2>' +
+                    '<div class="price_by_night"><p>$' + place.price_by_night + '</p></div>' +
+                    '<div class="information">' +
+                        '<div class="max_guest"><div class="guest_image"></div><p>' + place.max_guest + '</p></div>' +
+                        '<div class="number_rooms"><div class="bed_image"></div><p>' + place.number_rooms + '</p></div>' +
+                        '<div class="number_bathrooms"><div class="bath_image"></div><p>' + place.number_bathrooms + '</p></div>' +
+                    '</div>' +
+                    '<div class="description"><p>' + place.description + '</p></div>' +
+                '</article>'
+            );
+        }
     }
-
-})
+});
